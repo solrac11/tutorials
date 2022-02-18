@@ -25,12 +25,12 @@ resource "google_container_cluster" "primary" {
   }
 
 # jenkins use case
-  master_authorized_networks_config {
-    cidr_blocks {
-      cidr_block   = "10.0.0.0/18"
-      display_name = "private-subnet-w-jenkins"
-    }
-  }
+#   master_authorized_networks_config {
+#     cidr_blocks {
+#       cidr_block   = "10.0.0.0/18"
+#       display_name = "private-subnet-w-jenkins"
+#     }
+#   }
 
   private_cluster_config {
     enable_private_nodes    = true

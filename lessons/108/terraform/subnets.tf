@@ -7,7 +7,7 @@ resource "google_compute_subnetwork" "private" {
 
   secondary_ip_range {
     range_name    = "k8s-pod-range"
-    ip_cidr_range = "10.50.0.0/15"
+    ip_cidr_range = "10.48.0.0/14"
 
   }
   secondary_ip_range {

@@ -26,5 +26,8 @@ resource "google_compute_network" "main" {
   routing_mode                    = "REGIONAL"
   delete_default_routes_on_create = false
 
-  depends_on = [google_project_service.compute]
+  depends_on = [
+    google_project_service.compute,
+    google_project_service.container
+    ]
 }

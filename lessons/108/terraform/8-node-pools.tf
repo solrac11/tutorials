@@ -28,7 +28,6 @@ resource "google_container_node_pool" "general" {
       "https://www.googleapis.com/auth/cloud-platform"
     ]
   }
-
 }
 
 resource "google_container_node_pool" "spot" {
@@ -66,5 +65,4 @@ resource "google_container_node_pool" "spot" {
       "https://www.googleapis.com/auth/cloud-platform"
     ]
   }
-
 }

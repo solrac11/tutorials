@@ -24,3 +24,6 @@ show how to use local variables
 # recommend manuall if you need to whitelist for nat
 
 # https://cloud.google.com/kubernetes-engine/docs/concepts/types-of-clusters#zonal_clusters
+
+show autoscalling how it works on spot
+use case with service accounts and firewals, for example private load balancers

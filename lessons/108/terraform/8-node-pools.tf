@@ -6,7 +6,7 @@ resource "google_service_account" "kubernetes" {
 # https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/container_node_pool
 resource "google_container_node_pool" "general" {
   name       = "general"
-  location   = "us-central1"
+  location   = "us-central1-a"
   cluster    = google_container_cluster.primary.name
   node_count = 1
 
@@ -32,9 +32,8 @@ resource "google_container_node_pool" "general" {
 
 resource "google_container_node_pool" "spot" {
   name       = "spot"
-  location   = "us-central1"
+  location   = "us-central1-b"
   cluster    = google_container_cluster.primary.name
-  node_count = 1
 
   management {
     auto_repair  = true

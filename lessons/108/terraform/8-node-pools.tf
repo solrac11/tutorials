@@ -30,8 +30,8 @@ resource "google_container_node_pool" "general" {
 }
 
 resource "google_container_node_pool" "spot" {
-  name       = "spot"
-  cluster    = google_container_cluster.primary.id
+  name    = "spot"
+  cluster = google_container_cluster.primary.id
 
   management {
     auto_repair  = true

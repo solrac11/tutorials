@@ -15,6 +15,15 @@ resource "google_container_cluster" "primary" {
     "us-central1-b"
   ]
 
+  addons_config {
+    http_load_balancing {
+      disabled = false
+    }
+    horizontal_pod_autoscaling {
+      disabled = false
+    }
+  }
+
   release_channel {
     channel = "REGULAR"
   }

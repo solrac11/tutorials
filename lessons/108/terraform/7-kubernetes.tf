@@ -1,5 +1,4 @@
-# https://cloud.google.com/kubernetes-engine/docs/concepts/types-of-clusters#zonal_clusters
-
+# https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/container_cluster
 resource "google_container_cluster" "primary" {
   name                     = "primary"
   location                 = "us-central1"
@@ -24,17 +23,17 @@ resource "google_container_cluster" "primary" {
     services_secondary_range_name = "k8s-service-range"
   }
 
-  # jenkins use case
+  private_cluster_config {
+    enable_private_nodes    = true
+    enable_private_endpoint = false
+    master_ipv4_cidr_block  = "172.16.0.0/28"
+  }
+
+  #   Jenkins use case
   #   master_authorized_networks_config {
   #     cidr_blocks {
   #       cidr_block   = "10.0.0.0/18"
   #       display_name = "private-subnet-w-jenkins"
   #     }
   #   }
-
-  private_cluster_config {
-    enable_private_nodes    = true
-    enable_private_endpoint = false
-    master_ipv4_cidr_block  = "172.16.0.0/28"
-  }
 }

@@ -1,10 +1,9 @@
-# https://github.com/antonputra/tutorials/blob/main/lessons/069/terraform/7-kubernetes.tf
-
-resource "google_service_account" "k8s" {
+# https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_service_account
+resource "google_service_account" "kubernetes" {
   account_id = "kubernetes"
-  #   display_name = "Service Account"
 }
 
+# https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/container_node_pool
 resource "google_container_node_pool" "general" {
   name       = "general"
   location   = "us-central1"
@@ -24,7 +23,13 @@ resource "google_container_node_pool" "general" {
       role = "general"
     }
 
-    service_account = google_service_account.k8s.email
+    taint {
+      key    = "team"
+      value  = "devops"
+      effect = "NO_SCHEDULE"
+    }
+
+    service_account = google_service_account.kubernetes.email
     oauth_scopes = [
       "https://www.googleapis.com/auth/cloud-platform"
     ]

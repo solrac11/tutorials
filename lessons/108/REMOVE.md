@@ -14,3 +14,13 @@ Warning! It is highly recommended that you enable Object Versioning on the GCS b
 gcloud config configurations list
 cat ~/.config/gcloud/configurations/config_default
 gcloud init
+
+<!-- vpc.tf -->
+# at the end of video show how to impove with map enabling services for projects (compute/container) same with secondary subnets
+show how to use local variables
+# the provider project is used.
+# project = "your-project-id" 
+# Each new project starts with a default VPC network. You can disable the creation of default networks by creating an organization policy with the compute.skipDefaultNetworkCreation constraint. Projects that inherit this policy won't have a default network.
+# recommend manuall if you need to whitelist for nat
+
+# https://cloud.google.com/kubernetes-engine/docs/concepts/types-of-clusters#zonal_clusters

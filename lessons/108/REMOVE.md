@@ -1,13 +1,11 @@
 Examples
 
 - deploy something to cluster to trigger autoscalling (test autoscalling)
+- Use Workload Identity - access for pods using identeties, gs bucket
 - deploy public and private load balancers
 - deploy ingress with grafana (maybe)
 - firewalls (maybe jenkins example wants to do something)
-- access for pods using identeties, gs bucket
 - show here to find logs and metrics if enabled
-
-
 - Explain of the permissions that i need to create cluster
 gcloud auth application-default login
 
@@ -46,3 +44,8 @@ use case with service accounts and firewals, for example private load balancers
 https://cloud.google.com/kubernetes-engine/docs/concepts/ingress
 
 # Deploy Nginx Ingress Controller to GKE Cluster
+
+
+
+kubectl exec -n staging -it gcloud-7f5b44dfbd-829k9 -- bash
+gcloud alpha storage ls

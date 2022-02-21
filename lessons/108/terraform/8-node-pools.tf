@@ -6,8 +6,7 @@ resource "google_service_account" "kubernetes" {
 # https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/container_node_pool
 resource "google_container_node_pool" "general" {
   name       = "general"
-  location   = "us-central1-a"
-  cluster    = google_container_cluster.primary.name
+  cluster    = google_container_cluster.primary.id
   node_count = 1
 
   management {
@@ -32,8 +31,7 @@ resource "google_container_node_pool" "general" {
 
 resource "google_container_node_pool" "spot" {
   name       = "spot"
-  location   = "us-central1-b"
-  cluster    = google_container_cluster.primary.name
+  cluster    = google_container_cluster.primary.id
 
   management {
     auto_repair  = true
@@ -50,11 +48,11 @@ resource "google_container_node_pool" "spot" {
     machine_type = "e2-small"
 
     labels = {
-      role = "spot"
+      team = "devops"
     }
 
     taint {
-      key    = "type"
+      key    = "instance_type"
       value  = "spot"
       effect = "NO_SCHEDULE"
     }

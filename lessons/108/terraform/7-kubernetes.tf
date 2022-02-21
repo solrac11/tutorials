@@ -2,7 +2,7 @@
 
 resource "google_container_cluster" "primary" {
   name                     = "primary"
-  location                 = "us-central1-a"
+  location                 = "us-central1"
   remove_default_node_pool = true
   initial_node_count       = 1
   network                  = google_compute_network.main.self_link
@@ -24,13 +24,13 @@ resource "google_container_cluster" "primary" {
     services_secondary_range_name = "k8s-service-range"
   }
 
-# jenkins use case
-#   master_authorized_networks_config {
-#     cidr_blocks {
-#       cidr_block   = "10.0.0.0/18"
-#       display_name = "private-subnet-w-jenkins"
-#     }
-#   }
+  # jenkins use case
+  #   master_authorized_networks_config {
+  #     cidr_blocks {
+  #       cidr_block   = "10.0.0.0/18"
+  #       display_name = "private-subnet-w-jenkins"
+  #     }
+  #   }
 
   private_cluster_config {
     enable_private_nodes    = true

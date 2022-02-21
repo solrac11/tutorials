@@ -4,7 +4,7 @@ resource "google_compute_router_nat" "nat" {
   region = "us-central1"
 
   source_subnetwork_ip_ranges_to_nat = "LIST_OF_SUBNETWORKS"
-  nat_ip_allocate_option = "MANUAL_ONLY"
+  nat_ip_allocate_option             = "MANUAL_ONLY"
 
   subnetwork {
     name                    = google_compute_subnetwork.private.id
@@ -20,5 +20,5 @@ resource "google_compute_address" "nat" {
   address_type = "EXTERNAL"
   network_tier = "PREMIUM"
 
-    depends_on = [google_project_service.compute]
+  depends_on = [google_project_service.compute]
 }

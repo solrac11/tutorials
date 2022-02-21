@@ -29,5 +29,5 @@ resource "google_compute_network" "main" {
   depends_on = [
     google_project_service.compute,
     google_project_service.container
-    ]
+  ]
 }

@@ -1,15 +1,21 @@
-Examples
+# Sections
+
+## Configure Terraform GCS Backend
+## Create VPC in GCP using Terraform
+## Create Subnet in GCP using Terraform
+## Create Cloud Router in GCP using Terraform
+## Create Cloud NAT in GCP using Terraform
+## Create Firewall in GCP using Terraform
+## Create Google Kubernetes Engine (GKE) in GCP using Terraform
+## Create GKE Node Pools using Terraform
+## Enable GKE Workload Identity using Terraform
+## GKE Auto Scaling Example
+## GKE Workload Identity Example
+## Deploy Nginx Ingress Controller on GKE
+## GKE Ingress Example
 
 
-- deploy nginx ingress controller on gke (approved)
 
-- deploy something to cluster to trigger autoscalling (test autoscalling)
-- Use Workload Identity - access for pods using identeties, gs bucket
-- deploy public and private load balancers
-- deploy ingress with grafana (maybe)
-- firewalls (maybe jenkins example wants to do something)
-- show here to find logs and metrics if enabled
-- Explain of the permissions that i need to create cluster
 gcloud auth application-default login
 
 gcloud alpha storage ls --project devops-v4 --all-versions gs://antonputra-tf-state-staging

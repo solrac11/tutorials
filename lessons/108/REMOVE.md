@@ -20,8 +20,6 @@ gcloud auth application-default login
 
 gcloud alpha storage ls --project devops-v4 --all-versions gs://antonputra-tf-state-staging
 
-
-
 <!-- provider -->
 you must have gcloud installed
 
@@ -45,16 +43,10 @@ show how to use local variables
 show autoscalling how it works on spot
 use case with service accounts and firewals, for example private load balancers
 
-
-
-
-
 # How to Use Built-in GKE Ingress?
 https://cloud.google.com/kubernetes-engine/docs/concepts/ingress
 
 # Deploy Nginx Ingress Controller to GKE Cluster
-
-
 
 kubectl exec -n staging -it gcloud-7f5b44dfbd-829k9 -- bash
 gcloud alpha storage ls

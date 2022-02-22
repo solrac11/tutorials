@@ -1,5 +1,8 @@
 Examples
 
+
+- deploy nginx ingress controller on gke (approved)
+
 - deploy something to cluster to trigger autoscalling (test autoscalling)
 - Use Workload Identity - access for pods using identeties, gs bucket
 - deploy public and private load balancers
@@ -49,3 +52,22 @@ https://cloud.google.com/kubernetes-engine/docs/concepts/ingress
 
 kubectl exec -n staging -it gcloud-7f5b44dfbd-829k9 -- bash
 gcloud alpha storage ls
+
+
+https://github.com/kubernetes/ingress-nginx/tree/main/charts/ingress-nginx
+
+helm repo add ingress-nginx \
+  https://kubernetes.github.io/ingress-nginx
+
+helm repo update
+
+helm search repo nginx
+
+helm install my-ing ingress-nginx/ingress-nginx \
+  --namespace ingress \
+  --version 4.0.17 \
+  --values nginx-values.yaml \
+  --create-namespace
+
+kubectl get pods -n ingress
+kubectl get svc -n ingress
